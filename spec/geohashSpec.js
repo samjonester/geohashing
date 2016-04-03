@@ -21,10 +21,21 @@ describe('geohashing', function() {
       }
     }
     
-    var subject = geohash.dowWithRequester(requester)
+    var subject = geohash.dowWithRequester(requester);
 
     subject(function(dow) {
       expect(dow).toEqual('foobar');
     });
+  });
+
+  it('should get the current formatted date', function() {
+    var DateProducer = function() {
+      // Jan 1, 2016 - month is zero based
+      return new Date(2016, 00, 01);
+    }
+
+    var subject = geohash.formatDate;
+
+    expect(subject(DateProducer)).toEqual('2016-01-01');
   });
 });
