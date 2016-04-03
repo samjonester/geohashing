@@ -15,11 +15,9 @@ describe('geohashing', function() {
 
 
   it('should get the opening dow', function() {
-    var requester = {
-      get: function(url, callback) {
-        callback({query: {results: {quote: [{Open: 'foobar'}]}}});
-      }
-    }
+   var requester = function(url, requestCallback) {
+     requestCallback(undefined, undefined, JSON.stringify({query: {results: {quote: [{Open: 'foobar'}]}}}));
+   } 
     
     var subject = geohash.dowWithRequester(requester);
 
@@ -34,8 +32,8 @@ describe('geohashing', function() {
       return new Date(2016, 00, 01);
     }
 
-    var subject = geohash.formatDate;
+    var subject = geohash.formatDate(DateProducer);
 
-    expect(subject(DateProducer)).toEqual('2016-01-01');
+    expect(subject()).toEqual('2016-01-01');
   });
 });
