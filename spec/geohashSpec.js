@@ -1,7 +1,6 @@
 var geohash = require('../lib/geohash')
 
 describe('geohashing', function() {
-
   it('should get the current formatted date', function() {
     var DateProducer = function() {
       // Jan 1, 2016 - month is zero based
