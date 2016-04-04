@@ -9,6 +9,7 @@
   "author": "dave@testdouble.com",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.3.4",
     "express": "~4.0.0",
     "md5": "^2.1.0",
     "moment": "^2.12.0",
