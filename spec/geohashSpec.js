@@ -1,5 +1,4 @@
 var geohash = require('../lib/geohash')
-var Promise = require('bluebird')
 
 describe('geohashing', function() {
 
@@ -20,21 +19,6 @@ describe('geohashing', function() {
     var subject = geohash.calculateGeohash(hexToDec);
     
     expect(subject(inputLat, inputLong, date, dow)).toEqual({lat: 37.857713, lon: -122.544544});
-  });
-
-  it('should get the opening dow', function(done) {
-   var requester = function(url) {
-     return Promise.resolve({
-       body: JSON.stringify({query: {results: {quote: [{Open: 'foobar'}]}}})
-     });
-   } 
-    
-    var subject = geohash.dowWithRequester(requester);
-
-    subject().then(function(data) {
-      expect(data).toEqual('foobar');
-      done();
-    });
   });
 
   it('should get the current formatted date', function() {
