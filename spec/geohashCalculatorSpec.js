@@ -5,6 +5,7 @@ describe('Calculating new Geohash', function() {
     var subject = geohashCalculator.hexToDec;
 
     expect(subject('8b672cb305440f97')).toBeCloseTo(0.544544)
+    expect(subject('db9318c2259923d0')).toBeCloseTo(0.857713)
   });
 
   it('should calculate decimal hashes', function() {
