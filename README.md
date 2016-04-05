@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.org/samlawrencejones/geohashing.svg?branch=master)](https://travis-ci.org/samlawrencejones/geohashing)
+
+Live Demo!
+https://geohasher.herokuapp.com/geohash?lat=37.421542&lon=-122.085589
+
+
 # Geohashing Exercise
 
 Implement a geohashing restful service, as described in XKCD:

@@ -2,9 +2,10 @@
   "name": "geohashing",
   "version": "0.0.0",
   "description": "geohashing for learning node",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
-    "test": "grunt"
+    "test": "grunt",
+    "start": "node api.js"
   },
   "author": "dave@testdouble.com",
   "license": "ISC",
