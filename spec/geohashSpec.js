@@ -21,4 +21,14 @@ describe('geohashing', function() {
       done();
     });
   });
+  
+  it('should complete journey test with callback', function(done) {
+    var subject = geohash.geohash;
+
+    subject(37.421542, -122.085589, function(response) {
+      expect(response.lat).not.toBe('foobar');
+      expect(response.lon).not.toBe(undefined);
+      done();
+    });
+  });
 });
