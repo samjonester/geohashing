@@ -11,4 +11,14 @@ describe('geohashing', function() {
 
     expect(subject()).toEqual('2016-01-01');
   });
+
+  it('should complete journey test', function(done) {
+    var subject = geohash.geohash;
+
+    subject(37.421542, -122.085589).then(function(response) {
+      expect(response.lat).not.toBe('foobar');
+      expect(response.lon).not.toBe(undefined);
+      done();
+    });
+  });
 });
