@@ -1,10 +1,21 @@
-express = require('express');
-app     = express();
+var express = require('express');
+var bodyParser = require('body-parser');
+
+app = express();
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 geoHash = require('./lib/geohash');
 
-app.get('/geohash', function(req, res, next) {
+app.get('/geohash', function(req, res) {
   geoHash.geohash(req.query.lat, req.query.lon).then(function(data) {
+    res.json(data);
+  });
+});
+
+app.post('/geohash', function(req, res) {
+  console.log(req.body);
+  geoHash.geohash(req.body.lat, req.body.lon).then(function(data) {
     res.json(data);
   });
 });
