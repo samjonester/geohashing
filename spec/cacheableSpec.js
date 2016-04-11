@@ -1,20 +1,20 @@
 var cacheable = require('../lib/cacheable');
 
-describe('caching function calls', function() {
-  afterEach(function() {
+describe('caching function calls', () => {
+  afterEach(() => {
     cacheable.clear();
   });
 
-  it('should create cached function by key', function() {
+  it('should create cached function by key', () => {
     var cacheKey = "my-cache-key";
-    var myFun = function() { return 'foobar' }
+    var myFun = () => 'foobar';
 
     var subject = cacheable.cacheable(myFun, cacheKey);
 
     expect(subject()).toEqual('foobar');
   });
 
-  it('should return the same result with cached function', function() {
+  it('should return the same result with cached function', () => {
     var cacheKey = "my-cache-key";
 
     var once = cacheable.cacheable(Math.random, cacheKey)();
@@ -23,9 +23,9 @@ describe('caching function calls', function() {
     expect(once).toEqual(twice);
   });
 
-  it('should provide arguments to cached call', function() {
+  it('should provide arguments to cached call', () => {
     var cacheKey = "my-cache-key";
-    var myFun = function(arg) { return 'hello ' + arg }
+    var myFun = arg => 'hello ' + arg;
 
     var subject = cacheable.cacheable(myFun, cacheKey);
 
