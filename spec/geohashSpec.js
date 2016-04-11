@@ -16,7 +16,7 @@ describe('geohashing', function() {
     var subject = geohash.geohash;
 
     subject(37.421542, -122.085589).then(function(response) {
-      expect(response.lat).not.toBe('foobar');
+      expect(response.lat).not.toBe(undefined);
       expect(response.lon).not.toBe(undefined);
       done();
     });
@@ -26,7 +26,7 @@ describe('geohashing', function() {
     var subject = geohash.geohash;
 
     subject(37.421542, -122.085589, function(response) {
-      expect(response.lat).not.toBe('foobar');
+      expect(response.lat).not.toBe(undefined);
       expect(response.lon).not.toBe(undefined);
       done();
     });
