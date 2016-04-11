@@ -1,4 +1,4 @@
-var geohash = require('../lib/geohash')
+const geohash = require('../lib/geohash')
 
 describe('geohashing', () => {
   it('should get the current formatted date', () => {
@@ -6,13 +6,13 @@ describe('geohashing', () => {
       return new Date(2016, 00, 01)      // Jan 1, 2016 - month is zero based
     }
 
-    var subject = geohash.formatDate(DateProducer);
+    const subject = geohash.formatDate(DateProducer);
 
     expect(subject()).toEqual('2016-01-01');
   });
 
   it('should complete journey test', done => {
-    var subject = geohash.geohash;
+    const subject = geohash.geohash;
 
     subject(37.421542, -122.085589).then(response => {
       expect(response.lat).not.toBe(undefined);
@@ -22,7 +22,7 @@ describe('geohashing', () => {
   });
   
   it('should complete journey test with callback', done => {
-    var subject = geohash.geohash;
+    const subject = geohash.geohash;
 
     subject(37.421542, -122.085589, response => {
       expect(response.lat).not.toBe(undefined);
