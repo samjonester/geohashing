@@ -25,7 +25,7 @@ describe('caching function calls', () => {
 
   it('should provide arguments to cached call', () => {
     const cacheKey = "my-cache-key";
-    const myFun = arg => 'hello ' + arg;
+    const myFun = arg => `hello ${arg}`;
 
     const subject = cacheable.cacheable(myFun, cacheKey);
 
